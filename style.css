@@ -12,6 +12,7 @@ body {
     background-size: cover;  /* Ajusta la imagen para cubrir toda la pantalla */
     background-position: center;  /* Centra la imagen */
     background-repeat: no-repeat;  /* Evita que la imagen se repita */
+    background-color:  #e1e6e6;;
     min-height: 100vh;  /* Asegura que el body tenga al menos la altura de la pantalla */
     width: 100%;
 }
@@ -19,8 +20,9 @@ body {
 
 
 
+
 .menu {
-    background-color: #dfb967;
+    background-color: #588aa1;
     color: #fff;
     height: 70px;
 }
@@ -178,48 +180,68 @@ body {
     }
 }
 
+
 /* slideshow menu */
+
 .slideshow {
     position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    width: 100vw;
+    margin-top: 0; /* o ajustá según si el nav es fijo */
 }
 
 .slideshow-container {
     position: relative;
-    max-width: 800px;
-    width: 90%;
+    width: 100vw;
+    height: calc(100vh - 70px); /* resta la altura del header */
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.slide {
-    display: none;
-    width: 100%;
 }
 
 .slide img {
     width: 100%;
-    vertical-align: middle;
-    border-radius: 20px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* Efecto fade */
+/* Fade con suavidad y ligero movimiento */
 .fade {
     animation-name: fade;
-    animation-duration: 1.2s;
+    animation-duration: 2s;  /* antes era 1.2s */
+    animation-timing-function: ease-in-out; /* transiciones más naturales */
 }
 
-@keyframes fade {
-    from {
-        opacity: 0.4;
-        transform: scale(1.03);
+
+/* @keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+} */
+
+@keyframes fadeText {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: scale(1);
+        transform: translate(-50%, 0);
     }
 }
+
+
+
+.slide-text {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro translúcido */
+    color: #dbcbcb;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    animation: fadeText 1.8s ease-in-out forwards;
+    max-width: 90%;
+}
+
+
