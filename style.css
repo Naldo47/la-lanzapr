@@ -215,34 +215,46 @@ body {
     display: none; /* Las imágenes estarán ocultas inicialmente */
 }
 
-/* Asegura que todas las imágenes mantengan su proporción */
-.slide img {
-    width: 100%; /* La imagen ocupa el 100% del contenedor */
-    height: 100%; /* La imagen ocupa el 100% de la altura */
-    object-fit: cover; /* Asegura que la imagen cubra el área del contenedor sin deformarse */
-    border-radius: 10px; /* Borde redondeado para las imágenes */
-}
-
-/* Fade con suavidad y ligero movimiento */
-.fade {
-    animation-name: fade;
-    animation-duration: 2s;  /* antes era 1.2s */
-    animation-timing-function: ease-in-out; /* transiciones más naturales */
+/* para img del parrafo */
+.text-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* <-- reducí esto si querés que estén más cerca */
+    max-width: 1200px;
+    margin: 0 auto; /* centra el contenedor en la página */
+    padding:  20px
 }
 
 
-@keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
+.side-img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
 }
 
-/* @keyframes fadeText {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, 10px);
+
+
+
+/* img para la pantalla chica */
+@media (max-width: 768px) {
+    .text-image {
+      flex-direction: column;
+      align-items: center;
     }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+  
+    .side-img {
+      max-width: 90%;
     }
-}
+  }
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+  }
