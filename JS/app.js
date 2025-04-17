@@ -56,21 +56,42 @@
 })();
 
 
-let slideIndex = 0;
 
-function showSlides() {
-    const slides = document.querySelectorAll(".slide");
-    slides.forEach(slide => slide.style.display = "none");
 
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const slideshows = document.querySelectorAll('.side-slideshow');
+  
+    slideshows.forEach(slideshow => {
+      const images = slideshow.querySelectorAll('.side-img');
+      let index = 0;
+  
+      setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 3000);
+    });
+  });
+  
 
-    slides[slideIndex - 1].style.display = "block";
-    console.log("Mostrando slide", slideIndex); // 👈 Verifica si esto aparece
 
-    setTimeout(showSlides, 4000);
-}
 
-showSlides();
+
+// let slideIndex = 0;
+
+// function showSlides() {
+//     const slides = document.querySelectorAll(".slide");
+//     slides.forEach(slide => slide.style.display = "none");
+
+//     slideIndex++;
+//     if (slideIndex > slides.length) {
+//         slideIndex = 1;
+//     }
+
+//     slides[slideIndex - 1].style.display = "block";
+//     console.log("Mostrando slide", slideIndex); // 👈 Verifica si esto aparece
+
+//     setTimeout(showSlides, 4000);
+// }
+
+// showSlides();
