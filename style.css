@@ -22,7 +22,7 @@ body {
     font-family: "Pattaya", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: 13px;
    
 }
 
@@ -306,12 +306,28 @@ body {
 }
 
 
-.extra-content {
+/* .extra-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px; /* Aumentá este valor según el espacio que querés */
-}
+    margin-top: 60px; 
+} */
+
+.extra-content {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+/* lo nuevo */
+  .text-with-image.img-right {
+    flex-direction: row-reverse;
+  }
+  
+  .text-with-image.img-left {
+    flex-direction: row;
+  }
+  
 
 .extra-content p {
     font-family: "Birthstone", cursive;
@@ -351,73 +367,74 @@ body {
   }
 
 /* para img del parrafo */
-.text-with-image {
+/* .text-with-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* <-- reducí esto si querés que estén más cerca */
+    gap: 20px; 
     max-width: 1200px;
-    margin: 0 auto; /* centra el contenedor en la página */
+    margin: 0 auto; 
     padding:  20px;
     flex-wrap: nowrap;
-}
-
-
-.side-img {
-    width: 100%; /* <-- Aumenta este valor a gusto: 60%, 70%, etc. */
-    max-width: 500px; /* <-- Esto asegura que no se vuelva enorme en pantallas grandes */
-    height: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-    flex-shrink: 0; /* evita que la imagen se reduzca si el espacio es limitado */
-    
-}
-
-/* .text-block {
-    width: 60%;
 } */
 
-.text-block {
-    max-width: 500px;
-    text-align: left
+.text-with-image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
   }
 
+/* .side-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    flex-shrink: 0; 
+    
+} */
 
+.side-img {
+    width: 45%;
+    border-radius: 12px;
+  }
 
+/* .text-block {
+    max-width: 500px;
+    text-align: left
+  } */
 
+  .text-block {
+    flex: 1;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin: 60px auto;
+    width: 80%;
+  }
+
+  
 /* img para la pantalla chica */
 @media (max-width: 768px) {
-    .text-image {
+    .text-with-image {
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
   
     .side-img {
-      max-width: 90%;
+      width: 90%;
+    }
+  
+    .text-block {
+      text-align: center;
     }
   }
-
-
-  /* slideshow para img de parafo */
-  .side-slideshow {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    overflow: hidden;
-  }
   
-  .side-slideshow .side-img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  .side-slideshow .side-img.active {
-    opacity: 1;
-    position: relative;
-  }
   
 
 /* social media icon */
