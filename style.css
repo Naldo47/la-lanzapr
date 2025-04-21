@@ -193,7 +193,6 @@ body {
 
 
 /* slideshow menu */
-
 .slideshow {
     position: relative;
     width: 100vw;
@@ -305,14 +304,6 @@ body {
     color: #333;
 }
 
-
-/* .extra-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px; 
-} */
-
 .extra-content {
     padding: 40px 20px;
     max-width: 1200px;
@@ -367,17 +358,7 @@ body {
     border-radius: 2px;    /* Bordes redondeados */
   }
 
-/* para img del parrafo */
-/* .text-with-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; 
-    max-width: 1200px;
-    margin: 0 auto; 
-    padding:  20px;
-    flex-wrap: nowrap;
-} */
+
 
 .text-with-image {
     display: flex;
@@ -386,24 +367,12 @@ body {
     gap: 20px;
   }
 
-/* .side-img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-    flex-shrink: 0; 
-    
-} */
 
 .side-img {
     width: 45%;
-    border-radius: 12px;
+   
   }
 
-/* .text-block {
-    max-width: 500px;
-    text-align: left
-  } */
 
   .text-block {
     flex: 1;
@@ -507,6 +476,7 @@ body {
   }
 
 
+  /* seccion de la firma */
   .signature-section {
     text-align: center;
     padding: 60px 20px 30px;
@@ -559,7 +529,7 @@ body {
 
 
 
-
+/* seccion de galleria */
   .tour-gallery {
     padding: 60px 20px;
     background-color: #f9f9f9;
