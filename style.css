@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,33 +10,66 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url('../img/dji_fly_20240712_061708_299_1720779495558_photo_optimized.JPG');
-    background-size: cover;  /* Ajusta la imagen para cubrir toda la pantalla */
-    background-position: center;  /* Centra la imagen */
-    background-repeat: no-repeat;  /* Evita que la imagen se repita */
-    background-color:  #fff;;
-    min-height: 100vh;  /* Asegura que el body tenga al menos la altura de la pantalla */
-    width: 100%;
+    background-color: #ffffff;
+
 }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+  
+  
+
 
 
 .menu_logo {
     font-family: "Pattaya", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 13px;
+    font-size: 18px;
    
 }
 
 
 
-.menu {
-    background-color: #494640;
-    color: #fff;
+/* .menu {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fdf6ee;
     height: 70px;
     position: relative;
-    z-index: 10; /* Asegúrate de que sea mayor que el del slideshow */
-}
+    z-index: 10; 
+} */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Aumenta si es necesario */
+  }
+  
+
+.menu {
+    background-color: #3a3a3a;
+    color: #fdf6ee;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu a {
+    color: #fdf6ee;
+    text-decoration: none;
+    padding: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #d8b07e; /* Acento dorado suave */
+  }
+  
 
 .menu_container {
     display: flex;
@@ -199,14 +234,21 @@ body {
     margin-top: 0; /* o ajustá según si el nav es fijo */
 }
 
+/* .slideshow-container {
+    position: relative;
+    width: 100vw; 
+    height: 800px; 
+    overflow: hidden;
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+} */
+
 .slideshow-container {
     position: relative;
-    width: 100vw; /* Ocupa todo el ancho del viewport */
-    height: 800px; /* Fijamos una altura constante para el slideshow */
+    width: 100%;
+    height: 100vh; /* altura pantalla completa */
     overflow: hidden;
-    border-radius: 10px; /* Borde redondeado para el slideshow */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
-}
+  }
 
 .slide {
     position: absolute;
@@ -225,7 +267,7 @@ body {
     border-radius: 10px; /* Borde redondeado para las imágenes */
 }
 
-.video-background {
+/* .video-background {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -234,30 +276,88 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+  } */
+  
+  
+  /* .video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  } */
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
   }
   
-  
 
-.slide-text {
-    font-family: "Birthstone", cursive;
-    font-weight: 200;
-    font-style: normal;
+
+
+.slide-content {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra en ambos ejes */
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    color: #fffffa;
-    padding: 15px 30px;
-    /* border-radius: 12px; */
-    font-size: 100px;
+    transform: translate(-50%, -50%);
     text-align: center;
-    animation: fadeText 1.8s ease-in-out forwards;
-    max-width: 90%;
-    /* Aquí agregas la sombra */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    z-index: 2; /* 🔥 Esta línea es la clave */
-}
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre el texto y el botón */
+  }
+  
+  /* Si el texto está muy grande, baja el tamaño o ajusta el margen */
+  .slide-text {
+    font-family: "Birthstone", cursive;
+    font-size: 100px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin: 0;
+  }
+  
+  /* Botón estilizado */
+  .video-btn {
+    padding: 12px 30px;
+    background-color:  #92918e;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  /* Contenedor para texto y botón */
+.slide-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre texto y botón */
+  }
+  
+  
+  .video-btn:hover {
+    background-color: #c2006a;
+    transform: scale(1.05);
+  }
+  
+  
 
 
 /* Estilo para la galería */
@@ -304,6 +404,8 @@ body {
     color: #333;
 }
 
+
+/* primera seccion debajo de video */
 .extra-content {
     padding: 40px 20px;
     max-width: 1200px;
@@ -323,7 +425,7 @@ body {
 .extra-content p {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: weight;
+  font-weight: 400;
   font-style: normal;
     font-size: 19px; /* Tamaño del texto del párrafo */
     color: #272525; /* Color del texto */
@@ -367,23 +469,74 @@ body {
     gap: 20px;
   }
 
-
-.side-img {
-    width: 45%;
-   
+  .luxury-experience {
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0e4b5b;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #0e4b5b;
+    margin: 1rem auto 0;
+  }
+  
+  .content-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .content-block.img-right {
+    flex-direction: row;
+  }
+  
+  .content-block.img-left {
+    flex-direction: row-reverse;
   }
 
 
-  .text-block {
+.side-img {
+    width: 100%;
+    max-width: 500px;
+   
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+   
+  }
+
+  .side-img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+
+  .text-content {
     flex: 1;
-    font-size: 1.1em;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.7;
   }
 
   .section-divider {
     border: none;
-    border-top: 2px solid #ccc;
-    margin: 60px auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 3rem auto;
     width: 80%;
   }
 
@@ -586,6 +739,7 @@ body {
     display: flex;
     gap: 10px;
   }
+
   
   .book-btn,
   .learn-btn {
@@ -639,6 +793,217 @@ body {
     height: auto;
     opacity: 0.8;
   }
+
+  .split-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    padding: 5rem 2rem;
+    flex-wrap: wrap;
+    background-color: #f9f6f2; /* blanco con toque crema */
+  }
+  
+  .text-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+  }
+  
+  .text-column h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .text-column p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-dark {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-dark:hover {
+    background-color: #333;
+  }
+  
+  .image-column {
+    flex: 2;
+    min-width: 300px;
+    max-width: 600px;
+  }
+  
+  .image-column img {
+    width: 100%;
+   
+    object-fit: cover;
+  }
+
+
+
+
+
+
+
+  .custom-section {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    padding: 60px 20px;
+    background-color: #fefbf8;
+  }
+  
+  
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  
+  
+  
+  .text-column {
+    flex: 1;
+    min-width: 300px;
+    align-self: flex-start;
+  }
+  
+  
+  .text-column .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  
+  .text-column {
+    flex: 1;
+    min-width: 300px;
+    align-self: flex-start; /* <- también ayuda */
+  }
+  
+  
+  .cta-button {
+    display: inline-block; /* evita que se estire */
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    height: auto;         /* <- fuerza altura automática */
+    line-height: normal;  /* <- evita texto estirado */
+    align-self: flex-start; /* <- CLAVE: evita que el flex lo estire */
+  }
+  
+  
+  
+  .cta-button:hover {
+    background-color: #333;
+  }
+  
+  
+  .cta-button:hover {
+    background-color: #333;
+  }
+  
+  
+  .image-column {
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+  }
+  
+  .image-column img {
+    min-width: 400px;
+  }
+
+
+
+
+
+
+
+
+  
+
+  .about-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 100px;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding-right: 50px;
+  }
+  
+  .text-content h2 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  
+  .text-content p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+  
+  .btn-watch {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .btn-watch:hover {
+    background-color: #222;
+  }
+  
+  .image-content {
+    flex: 1;
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .about-video.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  
+  
+  
+  
+  
   
   
   
