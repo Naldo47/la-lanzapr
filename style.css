@@ -261,7 +261,8 @@ html {
   }
   
   /* Botón estilizado */
-  .video-btn {
+
+  /* .video-btn {
     padding: 12px 30px;
     background-color:  #92918e;
     color: white;
@@ -271,6 +272,20 @@ html {
     border-radius: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: background 0.3s ease, transform 0.2s ease;
+  } */
+
+  .video-btn {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #b89568, #d9b88f); /* degradado elegante */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
   }
 
   /* Contenedor para texto y botón */
@@ -297,9 +312,15 @@ html {
   }
   
   
-  .video-btn:hover {
+  /* .video-btn:hover {
     background-color: #c2006a;
     transform: scale(1.05);
+  } */
+
+  .video-btn:hover {
+    background: linear-gradient(135deg, #a07d52, #c49e76); /* más intenso al pasar */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
   }
   
 
