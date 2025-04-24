@@ -262,18 +262,6 @@ html {
   
   /* Botón estilizado */
 
-  /* .video-btn {
-    padding: 12px 30px;
-    background-color:  #92918e;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease, transform 0.2s ease;
-  } */
-
   .video-btn {
     padding: 14px 36px;
     background: linear-gradient(135deg, #b89568, #d9b88f); /* degradado elegante */
