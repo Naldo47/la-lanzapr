@@ -254,7 +254,7 @@ html {
   /* Si el texto está muy grande, baja el tamaño o ajusta el margen */
   .slide-text {
     font-family: "Birthstone", cursive;
-    font-size: 100px;
+    font-size: 60px;
     color: #fff;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     margin: 0;
