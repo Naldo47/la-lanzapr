@@ -675,7 +675,117 @@ html {
   
 
   /* footer con estilo */
+
   .footer {
+    background: linear-gradient(to right, #1c1f2a, #2e3440);
+    color: #fff;
+    padding: 60px 20px 30px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-about {
+    flex: 1 1 250px;
+  }
+  
+  .footer-logo {
+    width: 160px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-about p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  
+  .footer-links,
+  .footer-tours,
+  .footer-contact {
+    flex: 1 1 180px;
+  }
+  
+  .footer-links h4,
+  .footer-tours h4,
+  .footer-contact h4 {
+    color:  #d8b07e;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links ul,
+  .footer-tours ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li,
+  .footer-tours li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a,
+  .footer-tours a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover,
+  .footer-tours a:hover {
+    color: #fff;
+  }
+  
+  .footer-contact p {
+    color: #ccc;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+  
+  .footer-contact i {
+    margin-right: 8px;
+    color: #f8c95c;
+  }
+  
+  .footer-socials {
+    margin-top: 15px;
+  }
+  
+  .footer-socials a {
+    display: inline-block;
+    background-color:#aca598;
+    color: #1c1f2a;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  
+  .footer-socials a:hover {
+    transform: scale(1.1);
+    background-color: #c044a1;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 13px;
+  }
+  
+  /* .footer {
     background-color: #494640;
     color: #fff;
     padding: 40px 20px 20px;
@@ -740,4 +850,4 @@ html {
     font-size: 13px;
     color: #aaa;
   }
-  
+   */
