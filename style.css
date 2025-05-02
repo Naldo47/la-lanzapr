@@ -298,12 +298,6 @@ html {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
     z-index: 1;
   }
-  
-  
-  /* .video-btn:hover {
-    background-color: #c2006a;
-    transform: scale(1.05);
-  } */
 
   .video-btn:hover {
     background: linear-gradient(135deg, #a07d52, #c49e76); /* más intenso al pasar */
@@ -459,12 +453,6 @@ html {
 
 
   /* Seccion de gallery card */
-
-  /* .tour-gallery {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-  } */
 
   .tour-gallery {
     background: 
