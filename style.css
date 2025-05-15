@@ -39,12 +39,6 @@ html {
     width: 100%;
     z-index: 100; /* Aumenta si es necesario */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: rgba(58, 58, 58, 0.7);
-    backdrop-filter: blur(10px);
-  }
-  
-
-.menu {
     background-color: #3a3a3a;
     color: #fdf6ee;
     transition: background-color 0.3s ease;
@@ -224,7 +218,7 @@ html {
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* altura pantalla completa */
+    height: 100svh; /* altura pantalla completa */
     overflow: hidden;
   }
 
@@ -327,78 +321,102 @@ html {
   /* Award-carrusel */
 
   .award-slider {
-    background-image: url('assets/la\ lanza.pic.isla.jpg'); /* Ajusta esta ruta según tu proyecto */
+    position: relative;
+    background-image: url('assets/award-background-light.jpg'); /* Usa una imagen clara */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 60px 20px;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    color: #222;
     text-align: center;
-    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Capa sutil de color blanco semitransparente para legibilidad */
+  .award-slider-overlay {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.6);
     z-index: 1;
   }
   
+  .award-slider .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
   .award-slider h2 {
     font-family: "Birthstone", cursive;
-    font-size: 60px;
-    color: #fcf2f2;
-    margin-bottom: 40px;
-    position: relative;
+    font-size: 3.5rem;
+    color: #f8f3f3;
+    margin-bottom: 2rem;
   }
   
   .award-carousel {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
   }
   
   .award-card {
-    background-color: white;
+    background-color: #ffffff;
+    color: #333;
     border-radius: 16px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     padding: 30px 20px;
-    max-width: 300px;
-    transition: transform 0.3s ease;
+    min-width: 280px;
+    max-width: 320px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .award-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
   
   .award-card img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
   }
   
   .award-card h3 {
-    font-family: 'Georgia', serif;
-    font-size: 20px;
-    color: #222;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
   
   .stars {
     color: #f8c95c;
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
   }
   
   .award-card p {
-    font-size: 14px;
-    color: #555;
+    font-size: 0.95rem;
     line-height: 1.6;
+    color: #555;
   }
   
-  /* Responsive */
   @media (max-width: 768px) {
-    .award-carousel {
-      flex-direction: column;
-      align-items: center;
+    .award-slider h2 {
+      font-size: 2.5rem;
+    }
+    .award-card {
+      min-width: 80%;
     }
   }
+  
 
 
   /* seccion de la firma */
@@ -451,111 +469,161 @@ html {
   }
 
 
+/* Seccion de gallery card */
+  .trips-section {
+    display: flex;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #2e2e2e, #1f1f1f);
+    color: #fff;
+    flex-wrap: wrap;
+  }
+  
+  .trips-info {
+    flex: 1 1 300px;
+  }
+  
+  .trips-info h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  
+  .trips-info p {
+    font-style: italic;
+    color: #ccc;
+  }
+  
+  .trip-cards {
+    display: flex;
+    flex: 3 1 700px;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  
+  .trip-card {
+    position: relative;
+    width: 260px;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .trip-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .trip-card .nights {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.5);
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+  }
+  
+  .trip-content {
+    background: rgba(0,0,0,0.4);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: left;
+  }
+  
+  .trip-content small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #bbb;
+  }
+  
+  .trip-content h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .trip-content button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .trip-content button:hover {
+    background: white;
+    color: black;
+  }
 
-  /* Seccion de gallery card */
-
-  .tour-gallery {
-    background: 
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(247, 247, 247, 0.7)),
-    url('assets/la\ lanza.pic1.jpg');
+  .background-image {
+    background-image: url('assets/Afternoon-Private-Charter-aboard-El-Kraken-image-2.webp'); /* Reemplaza con tu ruta */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 60px 20px;
-    text-align: center;
+    background-attachment: fixed; /* Opcional para efecto parallax */
     position: relative;
     z-index: 1;
   }
   
-  
-  .tour-gallery h2 {
-    font-size: 2.2em;
-    margin-bottom: 40px;
-    color: #2c3e50;
-  }
-  
-  .tour-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .tour-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    max-width: 380px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-  
-  .tour-card img {
+  .background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece para mejor contraste */
+    z-index: 2;
   }
+  
+  .trips-section > * {
+    position: relative;
+    z-index: 3; /* Asegura que el contenido esté por encima del fondo */
+  }
+  
 
-  .tour-card:hover img {
-    transform: scale(1.05);
+  @media (max-width: 1024px) {
+    .trips-section {
+      flex-direction: column;
+      padding: 2rem 1rem;
+      gap: 2rem;
+    }
+  
+    .trip-cards {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+  
+    .trip-card {
+      min-width: 80%;
+      max-width: 90%;
+      scroll-snap-align: center;
+      height: 400px;
+    }
+  
+    .trip-content h3 {
+      font-size: 1rem;
+    }
+  
+    .trip-content button {
+      width: 100%;
+    }
   }
   
-  .tour-content {
-    padding: 20px;
-  }
-  
-  .tour-content h3 {
-    font-size: 1.3em;
-    color: #34495e;
-    margin-bottom: 10px;
-  }
-  
-  .tour-content p {
-    font-size: 0.95em;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
-  .tour-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  /* botones */
-  .book-btn,
-  .learn-btn {
-    flex: 1;
-    text-align: center;
-    padding: 10px 15px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-    transition: 0.3s ease;
-  }
-  
-  .book-btn {
-    background-color: #09144683;
-    color: white;
-  }
-  
-  .book-btn:hover {
-    background-color: #09144683;
-  }
-  
-  .learn-btn {
-    border: 2px solid #09144683;
-    color: #050505;
-    background-color: white;
-  }
-  
-  .learn-btn:hover {
-    background-color: #fef0f8;
-  }
-
-
 
 
    /* Linea de Division con bote  */
@@ -593,7 +661,7 @@ html {
   
 
 /* Primera y Segunda seccion con img */
-  .about-video {
+  /* .about-video {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -649,8 +717,96 @@ html {
   
   .about-video.reverse {
     flex-direction: row-reverse;
+  } */
+  
+  .about-video {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 80px 5%;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
   }
   
+  .about-video.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .text-content {
+    flex: 1 1 450px;
+    max-width: 600px;
+  }
+  
+  .text-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #111;
+    margin-bottom: 1rem;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-watch {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-watch:hover {
+    background-color: #333;
+  }
+  
+  .image-content {
+    flex: 1.3 1 600px;
+    max-width: 100%;
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .image-content img:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-video,
+    .about-video.reverse {
+      flex-direction: column;
+      padding: 60px 20px;
+    }
+  
+    .text-content, .image-content {
+      max-width: 100%;
+    }
+  
+    .text-content h2 {
+      font-size: 2rem;
+    }
+  
+    .btn-watch {
+      padding: 10px 20px;
+    }
+  }
   
 
 /* social media icon */
@@ -785,69 +941,4 @@ html {
     font-size: 13px;
   }
   
-  /* .footer {
-    background-color: #494640;
-    color: #fff;
-    padding: 40px 20px 20px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .footer h2,
-  .footer h3 {
-    font-family: 'Birthstone', cursive;
-    margin-bottom: 10px;
-    color: #f8c95c;
-  }
-  
-  .footer p, .footer a {
-    font-size: 14px;
-    color: #ccc;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    color: #fff;
-  }
-  
-  .footer-links ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-links li {
-    margin-bottom: 8px;
-  }
-  
-  .footer-social .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .footer-social .social-icons img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s;
-  }
-  
-  .footer-social .social-icons img:hover {
-    transform: scale(1.2);
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    border-top: 1px solid #333;
-    padding-top: 15px;
-    font-size: 13px;
-    color: #aaa;
-  }
-   */
+ 
